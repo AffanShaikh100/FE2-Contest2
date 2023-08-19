@@ -1,0 +1,77 @@
+body{
+    background-color: #111;
+    font-family: 'Inter', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+input{
+    background: #111;
+    font-size: 24px;
+    color:rgba(255, 255, 255, 0.50);
+    padding: 20px;
+    margin-inline: 20px;
+    width: 25vw;
+    border: 1px solid #FFF;
+    margin: 20px;
+}
+
+
+/* Heading of page */
+.heading-from{
+    color: #FFF;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 40px;
+}
+
+/* Personal description section */
+.personal-info1{
+    margin-left: 25px;
+}
+
+/* Add personal data by button */
+.add-data{
+    margin-left: 40px;
+    margin-top: 20px;
+}
+.add-data>button{
+    padding: 15px;
+    width: 40vw;
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Search bar of form */
+
+.searchbar{  
+       margin-left: 25px;
+       margin-top: 70px;
+}
+.searchbar>input{
+    
+    width: 88vw;
+}
+
+/* Data of students in form of table */
+table{
+    margin: 43px;
+    width: 91vw;
+    color: #FFF;
+    height: 400px;
+}
+
+th{
+    padding: 20px;
+    text-align: left;
+}
+
+table,th,td{
+    border: 1px solid #FFF;
+    border-collapse: collapse;
+}
+
