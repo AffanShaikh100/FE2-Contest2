@@ -46,6 +46,10 @@ input{
     line-height: normal;
 }
 
+#editstudentbtn{
+    display: none;
+}
+
 /* Search bar of form */
 
 .searchbar{  

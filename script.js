@@ -29,6 +29,12 @@ let student = [
     }
   ]; 
 
+  let form = document.getElementById("student-form");
+  form.addEventListener("submit", (Event)=>{
+    Event.preventDefault();
+  }
+  )
+
   let name12 = document.getElementById("name");
   let email12 = document.getElementById("email");
   let gpa12 = document.getElementById("gpa");
@@ -40,7 +46,6 @@ let student = [
   //Following function is used to load default data automatically
   
    function studentsinfo(liststudents){
-
 
     tbody.innerHTML="";
     
@@ -78,32 +83,32 @@ let student = [
 
  // Following function is there to add data which is inputed in our table
 
- function inputdata(){
+function inputdata(){
  
-  
-  // let id = document.createElement("p")
-  // id.innerHTML= student.length;
   let name1 = document.getElementById("name").value;
   let email1 = document.getElementById("email").value;
   let gpa1 = document.getElementById("gpa").value;
   let age1 = document.getElementById("age").value;
   let degree1 = document.getElementById("degree").value;
-  let studentdisplay = document.getElementById("student-id").value
   
   // THIS IF BLOCK IS ADDDED TO SEE WHETHER THE DATA WE ARE EDITING IS ALREADY
   // THERE IN OUR OBJECT ARRAY
-  if(studentdisplay){
+
+  // if(studentdisplay){
     
-    let matchst = student.filter((s)=>s.ID==studentdisplay);
-    matchst[0].name = name1;
-    matchst[0].email = email1;
-    matchst[0].age = age1;
-    matchst[0].gpa = gpa1;
-    matchst[0].degree = degree1;
-  }
+  //   let matchst = student.filter((s,ind)=>{
+  //      indexval = ind;
+  //     s.ID==studentdisplay
+  //   });
 
+  //   matchst[0].name = name1;
+  //   matchst[0].email = email1;
+  //   matchst[0].age = age1;
+  //   matchst[0].gpa = gpa1;
+  //   matchst[0].degree = degree1;
+  // }
+  // else{
 
-  else{
   let newinput = {
     ID: student.length + 1,
     name: name1,
@@ -112,21 +117,19 @@ let student = [
     grade: gpa1,
     degree: degree1   
   }
-      student.push(newinput);
-  }
+    student.push(newinput);
+  // }
   document.getElementById("student-form").reset();
-  document.getElementById("addstudent").innerText="Add Student";
   studentsinfo(student);
-  return false;
-  
- }
+}
 
 
 
+// ADDING THE SEARCH FUNCTIONALITY
 function searchlist(){
   let infogh = document.getElementById("textnameclicked").value;
   infogh = infogh.toLowerCase();
-  console.log(infogh);
+ 
   let filtered = student.filter((stud)=>{
     return(stud.name.toLowerCase().includes(infogh)||
            stud.email.toLowerCase().includes(infogh)||
@@ -161,11 +164,36 @@ function editstudent(rowindex){
  gpa12.value =  upname[0].grade;
  age12.value =  upname[0].age;
  degree12.value =  upname[0].degree;
- document.getElementById("student-id").value = upname[0].ID;
 
- let updatebutton =document.getElementById("addstudent");
- updatebutton.textContent = "Edit Student data"
-    
+
+ let arrobj = upname[0];
+
+
+ document.getElementById("addstudent").style.display="none";
+ let updtbtn = document.getElementById("editstudentbtn");
+ updtbtn.style.display="block";
+ updtbtn.onclick = function(){updatestudent(arrobj)};
+
 }
+// ADDING THE EDITING FUNCTIONALITY BY PROVIDING A DIFFERENT FUNCTION
+function updatestudent(arrobj){
 
-studentsinfo(student)
+ document.getElementById("addstudent").style.display="none";
+ let updtbtn = document.getElementById("editstudentbtn");
+ updtbtn.style.display="block";
+ 
+ let editablev = student.filter((s)=>arrobj==s);
+ let editobj = editablev[0];
+
+ editobj.name = name12.value;
+ editobj.age = age12.value;
+ editobj.email = email12.value;
+ editobj.grade = gpa12.value;
+ editobj.degree =degree12.value;
+
+
+ document.getElementById("addstudent").style.display="block";
+ updtbtn.style.display="none";
+ studentsinfo(student);
+ document.getElementById("student-form").reset();
+}

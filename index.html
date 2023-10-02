@@ -12,8 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
 
 </head>
-<body>
-     <form id="student-form" onsubmit="return inputdata()">
+<body onload="studentsinfo(student)">
+     <form id="student-form">
         <header>
             <h3 class="heading-from">Student Management CRUD</h3>
         </header>
@@ -28,13 +28,13 @@
             <div class="personal-info1">
                 <input id="age" type="number" placeholder="Age">
                 <input id="degree" type="text" placeholder="Degree">
-                <!-- BELOW INPUT ESPECIALLY MEANT FOR EDIT FUNTIONALITY -->
-                <input type="hidden" id="student-id">
+               
              </div>
         </section>
         <section>
             <div class="add-data">
-                 <button type="submit" id="addstudent" >Add Student</button>
+                 <button type="submit" id="addstudent" onclick="inputdata()">Add Student</button>
+                 <button id="editstudentbtn"> Edit Student Data</button>
             </div>
         </section>
      </form>
