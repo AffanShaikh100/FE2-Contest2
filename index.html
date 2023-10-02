@@ -13,36 +13,39 @@
 
 </head>
 <body>
-     <form>
+     <form id="student-form" onsubmit="return inputdata()">
         <header>
             <h3 class="heading-from">Student Management CRUD</h3>
         </header>
         <section>
              <div class="personal-info1">
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="text" placeholder="GPA">
+                <input id="name" type="text" placeholder="Name">
+                <input id="email" type="email" placeholder="Email">
+                <input id="gpa" type="text" placeholder="GPA">
              </div>
         </section>
         <section>
             <div class="personal-info1">
-                <input type="number" placeholder="Age">
-                <input type="text" placeholder="Degree">
-                
+                <input id="age" type="number" placeholder="Age">
+                <input id="degree" type="text" placeholder="Degree">
+                <!-- BELOW INPUT ESPECIALLY MEANT FOR EDIT FUNTIONALITY -->
+                <input type="hidden" id="student-id">
              </div>
         </section>
         <section>
             <div class="add-data">
-                 <button type="button">Add Student</button>
+                 <button type="submit" id="addstudent" >Add Student</button>
             </div>
         </section>
+     </form>
         <section>
               <div class="searchbar"> 
-                    <input type="text" placeholder="Search By Name, email or degree">
+                    <input type="text" id="textnameclicked" onkeyup="searchlist()" placeholder="Search By Name, email or degree">
               </div>
         </section>
+    
         <section>
-               <table>
+               <table id="studentdatalist">
                     <thead id="tableheading">
                          <th>ID</th>
                          <th>Student Name</th>
@@ -50,20 +53,16 @@
                          <th>Age</th>
                          <th>GPA</th>
                          <th>Degree</th>
+                         <th>Update Info</th>
                     </thead>
-                    <tbody>
-                        <tr class="first row">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        
+                    <tbody id="tablebody">
+                       
                     </tbody>
                </table>
         </section>
-     </form>
+   
+
+     <script src="./script.js"></script>
+
 </body>
 </html>
